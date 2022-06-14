@@ -51,15 +51,15 @@
             {
                 if(!empty($existe))
                 {  
-                    //-----------
-                    $filtro =['CORREO' => $stringCorreo];
-                    $document = $collection2->findOne($filtro);
-                    $datosPuntaje = $document->jsonSerialize();
-                    //echo $datosPuntaje->PUNTAJE;
-                    $Puntaje = $datosPuntaje->PUNTAJE;
-                    //Enviar a unity
-                    $enviar->PUNTAJE = $Puntaje;
-                    //echo json_encode($enviar);
+                    // //-----------
+                    // $filtro =['CORREO' => $stringCorreo];
+                    // $document = $collection2->findOne($filtro);
+                    // $datosPuntaje = $document->jsonSerialize();
+                    // //echo $datosPuntaje->PUNTAJE;
+                    // $Puntaje = $datosPuntaje->PUNTAJE;
+                    // //Enviar a unity
+                    // $enviar->PUNTAJE = $Puntaje;
+                    // //echo json_encode($enviar);
                 } else 
                 {
                     //$insertOneResult = $collection2->insertOne($document); 
