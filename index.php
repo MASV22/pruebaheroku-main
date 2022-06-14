@@ -61,27 +61,27 @@
             } else 
             {
                 //$insertOneResult = $collection2->insertOne($document); 
-                echo 'Se agrego el campo correctamente';
+                //echo 'Se agrego el campo correctamente';
             }                       
         }
         elseif($stringCorreo == $datosCorreo->CORREO && $stringclave != $datosCorreo->PASSWORD)
         {
-            echo 'Contraseña incorrecta';
+            //echo 'Contraseña incorrecta';
             //echo 'La contraseña ingresada fue  '.$stringclave;
         }
         elseif($stringCorreo != $datosCorreo->CORREO && $stringclave == $datosCorreo->PASSWORD)
         {
-            echo 'Correo incorrecto';
+            //echo 'Correo incorrecto';
             //echo 'El correo ingresado fue ' .$stringCorreo;
         }else
         {
-            echo 'Todos los datos estan incorrectos';
+            //echo 'Todos los datos estan incorrectos';
             //echo 'La contraseña ingresada fue  '.$stringclave;
             //echo 'El correo ingresado fue ' .$stringCorreo;
         }
     }else
     {
-        echo 'Falta llenar los campos';
+        //echo 'Falta llenar los campos';
     }
 ?>
 
