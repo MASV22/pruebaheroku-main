@@ -5,20 +5,20 @@
     // Crear Cliente---------------------------------------------------------------------
     $client = new MongoDB\Client('mongodb+srv://TBBLuxari:DMc53jwH5CIQAryP@prueba-puntos.veb9sop.mongodb.net/?retryWrites=true&w=majority');
     // Traet Base de datos-----------------------------------------------------------------
-    $database = $client->Allers;
-    // Crear o Traer coleccion-----------------------------------------------------------
-    $collection = $database->Usuarios;
-    $collection2 = $database->UsuariosHeroku;
-    // Logica de Login -------------------------------------------------------------------------------------
+    // $database = $client->Allers;
+    // // Crear o Traer coleccion-----------------------------------------------------------
+    // $collection = $database->Usuarios;
+    // $collection2 = $database->UsuariosHeroku;
+    // // Logica de Login -------------------------------------------------------------------------------------
 
-    //Variables que necesito 
-    $Usuario = $_GET['Usuario'];
-    $Clave = $_GET['Clave'];
-    $Tiempo =$_GET['Tiempo'];
-    $Puntaje =0;
-    //-----------
-    $stringCorreo = $Usuario;
-    $stringclave = $Clave;
+    // //Variables que necesito 
+    // $Usuario = $_GET['Usuario'];
+    // $Clave = $_GET['Clave'];
+    // $Tiempo =$_GET['Tiempo'];
+    // $Puntaje =0;
+    // //-----------
+    // $stringCorreo = $Usuario;
+    // $stringclave = $Clave;
     //----------
     //$filtroCorreo =['CORREO' => $stringCorreo];
     //$CORREO = $collection->findOne($filtroCorreo);
@@ -36,12 +36,12 @@
         }
     */ 
     // Documento para instertar
-    $document=[
+    // $document=[
 
-        'CORREO' => $stringCorreo,
-        'PUNTAJE' => 0,
-        'INTENTO' => $Tiempo,
-    ];
+    //     'CORREO' => $stringCorreo,
+    //     'PUNTAJE' => 0,
+    //     'INTENTO' => $Tiempo,
+    // ];
 
     // Comprobar 
     // if($datosCorreo->CORREO != null && $datosCorreo->PASSWORD != null)
