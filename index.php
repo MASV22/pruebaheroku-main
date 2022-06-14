@@ -47,22 +47,25 @@
         if( $stringCorreo == $datosCorreo->CORREO && $stringclave == $datosCorreo->PASSWORD )
         {
             $existe = $collection2->findOne($filtroCorreo);
-            if(!empty($existe) && $stringclave == $datosCorreo->PASSWORD)
-            {  
-                //-----------
-                $filtro =['CORREO' => $stringCorreo];
-                $document = $collection2->findOne($filtro);
-                $datosPuntaje = $document->jsonSerialize();
-                //echo $datosPuntaje->PUNTAJE;
-                $Puntaje = $datosPuntaje->PUNTAJE;
-                //Enviar a unity
-                $enviar->PUNTAJE = $Puntaje;
-                echo json_encode($enviar);
-            } else 
+            if($stringclave == $datosCorreo->PASSWORD)
             {
-                //$insertOneResult = $collection2->insertOne($document); 
-                //echo 'Se agrego el campo correctamente';
-            }                       
+                if(!empty($existe))
+                {  
+                    //-----------
+                    $filtro =['CORREO' => $stringCorreo];
+                    $document = $collection2->findOne($filtro);
+                    $datosPuntaje = $document->jsonSerialize();
+                    //echo $datosPuntaje->PUNTAJE;
+                    $Puntaje = $datosPuntaje->PUNTAJE;
+                    //Enviar a unity
+                    $enviar->PUNTAJE = $Puntaje;
+                    echo json_encode($enviar);
+                } else 
+                {
+                    //$insertOneResult = $collection2->insertOne($document); 
+                    //echo 'Se agrego el campo correctamente';
+                } 
+            }                      
         }
         elseif($stringCorreo == $datosCorreo->CORREO && $stringclave != $datosCorreo->PASSWORD)
         {
