@@ -3,7 +3,7 @@
     header("Access-Control-Allow-Origin: *");
     require_once __DIR__ . '/vendor/autoload.php';
     // Crear Cliente---------------------------------------------------------------------
-    $client = new MongoDB\Client('mongodb+srv://TBBLuxari:DMc53jwH5CIQAryP@prueba-puntos.veb9sop.mongodb.net/?retryWrites=true&w=majority');
+    //$client = new MongoDB\Client('mongodb+srv://TBBLuxari:DMc53jwH5CIQAryP@prueba-puntos.veb9sop.mongodb.net/?retryWrites=true&w=majority');
     // Traet Base de datos-----------------------------------------------------------------
     // $database = $client->Allers;
     // // Crear o Traer coleccion-----------------------------------------------------------
