@@ -60,7 +60,7 @@
                 echo json_encode($enviar);
             } else 
             {
-                $insertOneResult = $collection2->insertOne($document); 
+                //$insertOneResult = $collection2->insertOne($document); 
                 echo 'Se agrego el campo correctamente';
             }                       
         }
