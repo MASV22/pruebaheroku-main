@@ -22,7 +22,7 @@
     //----------
     $filtroCorreo =['CORREO' => $stringCorreo];
     $CORREO = $collection->findOne($filtroCorreo);
-    $datosCorreo = $CORREO->jsonSerialize();
+    //$datosCorreo = $CORREO->jsonSerialize();
     // despues de jsonSerialize queda asi 
     /*
         {
