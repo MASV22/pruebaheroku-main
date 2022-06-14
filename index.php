@@ -59,7 +59,7 @@
                     $Puntaje = $datosPuntaje->PUNTAJE;
                     //Enviar a unity
                     $enviar->PUNTAJE = $Puntaje;
-                    echo json_encode($enviar);
+                    //echo json_encode($enviar);
                 } else 
                 {
                     //$insertOneResult = $collection2->insertOne($document); 
