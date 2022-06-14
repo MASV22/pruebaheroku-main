@@ -47,7 +47,7 @@
         if( $stringCorreo == $datosCorreo->CORREO && $stringclave == $datosCorreo->PASSWORD )
         {
             $existe = $collection2->findOne($filtroCorreo);
-            if(!empty($existe))
+            if(!empty($existe) && $stringclave == $datosCorreo->PASSWORD)
             {  
                 //-----------
                 $filtro =['CORREO' => $stringCorreo];
