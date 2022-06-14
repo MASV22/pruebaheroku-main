@@ -20,9 +20,11 @@
     $stringCorreo = $Usuario;
     $stringclave = $Clave;
     //----------
-    $filtroCorreo =['CORREO' => $stringCorreo];
-    $CORREO = $collection->findOne($filtroCorreo);
+    //$filtroCorreo =['CORREO' => $stringCorreo];
+    //$CORREO = $collection->findOne($filtroCorreo);
     //$datosCorreo = $CORREO->jsonSerialize();
+
+
     // despues de jsonSerialize queda asi 
     /*
         {
