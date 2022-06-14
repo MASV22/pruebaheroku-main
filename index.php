@@ -69,21 +69,25 @@
         }
         elseif($stringCorreo == $datosCorreo->CORREO && $stringclave != $datosCorreo->PASSWORD)
         {
+            error_log("¡Base de datos Oracle no disponible!", 0);
             //echo 'Contraseña incorrecta';
             //echo 'La contraseña ingresada fue  '.$stringclave;
         }
         elseif($stringCorreo != $datosCorreo->CORREO && $stringclave == $datosCorreo->PASSWORD)
         {
+            error_log("¡Base de datos Oracle no disponible!", 0);
             //echo 'Correo incorrecto';
             //echo 'El correo ingresado fue ' .$stringCorreo;
         }else
         {
+            error_log("¡Base de datos Oracle no disponible!", 0);
             //echo 'Todos los datos estan incorrectos';
             //echo 'La contraseña ingresada fue  '.$stringclave;
             //echo 'El correo ingresado fue ' .$stringCorreo;
         }
     }else
     {
+        error_log("¡Base de datos Oracle no disponible!", 0);
         //echo 'Falta llenar los campos';
     }
 ?>
