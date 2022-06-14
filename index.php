@@ -67,17 +67,17 @@
         elseif($stringCorreo == $datosCorreo->CORREO && $stringclave != $datosCorreo->PASSWORD)
         {
             echo 'Contraseña incorrecta';
-            echo 'La contraseña ingresada fue  '.$stringclave;
+            //echo 'La contraseña ingresada fue  '.$stringclave;
         }
         elseif($stringCorreo != $datosCorreo->CORREO && $stringclave == $datosCorreo->PASSWORD)
         {
             echo 'Correo incorrecto';
-            echo 'El correo ingresado fue ' .$stringCorreo;
+            //echo 'El correo ingresado fue ' .$stringCorreo;
         }else
         {
             echo 'Todos los datos estan incorrectos';
-            echo 'La contraseña ingresada fue  '.$stringclave;
-            echo 'El correo ingresado fue ' .$stringCorreo;
+            //echo 'La contraseña ingresada fue  '.$stringclave;
+            //echo 'El correo ingresado fue ' .$stringCorreo;
         }
     }else
     {
