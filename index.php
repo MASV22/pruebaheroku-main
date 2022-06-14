@@ -42,50 +42,50 @@
     ];
 
     // Comprobar 
-    if($datosCorreo->CORREO != null && $datosCorreo->PASSWORD != null)
-    {
-        if( $stringCorreo == $datosCorreo->CORREO && $stringclave == $datosCorreo->PASSWORD )
-        {
-            $existe = $collection2->findOne($filtroCorreo);
-            if($stringclave == $datosCorreo->PASSWORD)
-            {
-                if(!empty($existe))
-                {  
-                    // //-----------
-                    // $filtro =['CORREO' => $stringCorreo];
-                    // $document = $collection2->findOne($filtro);
-                    // $datosPuntaje = $document->jsonSerialize();
-                    // //echo $datosPuntaje->PUNTAJE;
-                    // $Puntaje = $datosPuntaje->PUNTAJE;
-                    // //Enviar a unity
-                    // $enviar->PUNTAJE = $Puntaje;
-                    // //echo json_encode($enviar);
-                } else 
-                {
-                    //$insertOneResult = $collection2->insertOne($document); 
-                    //echo 'Se agrego el campo correctamente';
-                } 
-            }                      
-        }
-        elseif($stringCorreo == $datosCorreo->CORREO && $stringclave != $datosCorreo->PASSWORD)
-        {
-            //echo 'Contraseña incorrecta';
-            //echo 'La contraseña ingresada fue  '.$stringclave;
-        }
-        elseif($stringCorreo != $datosCorreo->CORREO && $stringclave == $datosCorreo->PASSWORD)
-        {
-            //echo 'Correo incorrecto';
-            //echo 'El correo ingresado fue ' .$stringCorreo;
-        }else
-        {
-            //echo 'Todos los datos estan incorrectos';
-            //echo 'La contraseña ingresada fue  '.$stringclave;
-            //echo 'El correo ingresado fue ' .$stringCorreo;
-        }
-    }else
-    {
-        //echo 'Falta llenar los campos';
-    }
+    // if($datosCorreo->CORREO != null && $datosCorreo->PASSWORD != null)
+    // {
+    //     if( $stringCorreo == $datosCorreo->CORREO && $stringclave == $datosCorreo->PASSWORD )
+    //     {
+    //         $existe = $collection2->findOne($filtroCorreo);
+    //         if($stringclave == $datosCorreo->PASSWORD)
+    //         {
+    //             if(!empty($existe))
+    //             {  
+    //                 //-----------
+    //                 $filtro =['CORREO' => $stringCorreo];
+    //                 $document = $collection2->findOne($filtro);
+    //                 $datosPuntaje = $document->jsonSerialize();
+    //                 //echo $datosPuntaje->PUNTAJE;
+    //                 $Puntaje = $datosPuntaje->PUNTAJE;
+    //                 //Enviar a unity
+    //                 $enviar->PUNTAJE = $Puntaje;
+    //                 echo json_encode($enviar);
+    //             } else 
+    //             {
+    //                 //$insertOneResult = $collection2->insertOne($document); 
+    //                 //echo 'Se agrego el campo correctamente';
+    //             } 
+    //         }                      
+    //     }
+    //     elseif($stringCorreo == $datosCorreo->CORREO && $stringclave != $datosCorreo->PASSWORD)
+    //     {
+    //         //echo 'Contraseña incorrecta';
+    //         //echo 'La contraseña ingresada fue  '.$stringclave;
+    //     }
+    //     elseif($stringCorreo != $datosCorreo->CORREO && $stringclave == $datosCorreo->PASSWORD)
+    //     {
+    //         //echo 'Correo incorrecto';
+    //         //echo 'El correo ingresado fue ' .$stringCorreo;
+    //     }else
+    //     {
+    //         //echo 'Todos los datos estan incorrectos';
+    //         //echo 'La contraseña ingresada fue  '.$stringclave;
+    //         //echo 'El correo ingresado fue ' .$stringCorreo;
+    //     }
+    // }else
+    // {
+    //     //echo 'Falta llenar los campos';
+    // }
 ?>
 
 
