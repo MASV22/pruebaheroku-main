@@ -42,53 +42,59 @@
     ];
 
     // Comprobar 
-    if($datosCorreo->CORREO != null && $datosCorreo->PASSWORD != null)
+    if($datosCorreo->PASSWORD != null)
     {
-        if( $stringCorreo == $datosCorreo->CORREO && $stringclave == $datosCorreo->PASSWORD )
+        if($datosCorreo->CORREO != null)
         {
-            $existe = $collection2->findOne($filtroCorreo);
-            if($stringclave == $datosCorreo->PASSWORD)
+            if ($stringclave == $datosCorreo->PASSWORD) 
             {
-                if(!empty($existe))
-                {  
-                    //-----------
-                    $filtro =['CORREO' => $stringCorreo];
-                    $document = $collection2->findOne($filtro);
-                    $datosPuntaje = $document->jsonSerialize();
-                    //echo $datosPuntaje->PUNTAJE;
-                    $Puntaje = $datosPuntaje->PUNTAJE;
-                    //Enviar a unity
-                    $enviar->PUNTAJE = $Puntaje;
-                    echo json_encode($enviar);
-                } else 
+                if( $stringCorreo == $datosCorreo->CORREO)
                 {
-                    //$insertOneResult = $collection2->insertOne($document); 
-                    //echo 'Se agrego el campo correctamente';
-                } 
-            }                      
-        }
-        elseif($stringCorreo == $datosCorreo->CORREO && $stringclave != $datosCorreo->PASSWORD)
-        {
-            error_log("¡Base de datos Oracle no disponible!", 0);
-            //echo 'Contraseña incorrecta';
-            //echo 'La contraseña ingresada fue  '.$stringclave;
-        }
-        elseif($stringCorreo != $datosCorreo->CORREO && $stringclave == $datosCorreo->PASSWORD)
-        {
-            error_log("¡Base de datos Oracle no disponible!", 0);
-            //echo 'Correo incorrecto';
-            //echo 'El correo ingresado fue ' .$stringCorreo;
+                    $existe = $collection2->findOne($filtroCorreo);
+                    if($stringclave == $datosCorreo->PASSWORD)
+                    {
+                        if(!empty($existe))
+                        {  
+                            //-----------
+                            $filtro =['CORREO' => $stringCorreo];
+                            $document = $collection2->findOne($filtro);
+                            $datosPuntaje = $document->jsonSerialize();
+                            //echo $datosPuntaje->PUNTAJE;
+                            $Puntaje = $datosPuntaje->PUNTAJE;
+                            //Enviar a unity
+                            $enviar->PUNTAJE = $Puntaje;
+                            echo json_encode($enviar);
+                        } else 
+                        {
+                            //$insertOneResult = $collection2->insertOne($document); 
+                            //echo 'Se agrego el campo correctamente';
+                        } 
+                    }                      
+                }
+            }
+            elseif($stringCorreo == $datosCorreo->CORREO && $stringclave != $datosCorreo->PASSWORD)
+            {
+                error_log("¡Base de datos Oracle no disponible!", 0);
+                //echo 'Contraseña incorrecta';
+                //echo 'La contraseña ingresada fue  '.$stringclave;
+            }
+            elseif($stringCorreo != $datosCorreo->CORREO && $stringclave == $datosCorreo->PASSWORD)
+            {
+                error_log("¡Base de datos Oracle no disponible!", 0);
+                //echo 'Correo incorrecto';
+                //echo 'El correo ingresado fue ' .$stringCorreo;
+            }else
+            {
+                error_log("¡Base de datos Oracle no disponible!", 0);
+                //echo 'Todos los datos estan incorrectos';
+                //echo 'La contraseña ingresada fue  '.$stringclave;
+                //echo 'El correo ingresado fue ' .$stringCorreo;
+            }
         }else
         {
             error_log("¡Base de datos Oracle no disponible!", 0);
-            //echo 'Todos los datos estan incorrectos';
-            //echo 'La contraseña ingresada fue  '.$stringclave;
-            //echo 'El correo ingresado fue ' .$stringCorreo;
+            //echo 'Falta llenar los campos';
         }
-    }else
-    {
-        error_log("¡Base de datos Oracle no disponible!", 0);
-        //echo 'Falta llenar los campos';
     }
 ?>
 
