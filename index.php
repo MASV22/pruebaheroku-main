@@ -10,7 +10,7 @@
     $collection = $database->usuario;
     // Logica de Login -------------------------------------------------------------------------------------
 
-    //Variables que necesito 
+    //Variables que necesito -----------
     $Usuario = $_GET['Correo'];
     $Clave = $_GET['Clave'];
     $Puntaje =0;
