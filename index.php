@@ -93,7 +93,7 @@
             }
 
     }else{
-        echo("usuario no encontrado");
+       
     }
 
     
