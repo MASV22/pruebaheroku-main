@@ -93,7 +93,9 @@
             }
 
     }else{
-       
+
+        $var = json_encode(null);
+        die($var);
     }
 
     
