@@ -74,22 +74,22 @@
                 }
                 elseif($stringCorreo == $datosCorreo->user && $stringclave != $datosCorreo->password)
                 {
-                    echo 'Contraseña incorrecta';
-                    echo 'La contraseña ingresada fue  '.$stringclave;
+                    $var = json_encode(null);
+                    die($var);
                 }
                 elseif($stringCorreo != $datosCorreo->user && $stringclave == $datosCorreo->password)
                 {
-                    echo 'Correo incorrecto';
-                    echo 'El correo ingresado fue ' .$stringCorreo;
+                    $var = json_encode(null);
+                    die($var);
                 }else
                 {
-                    echo 'Todos los datos estan incorrectos';
-                    echo 'La contraseña ingresada fue  '.$stringclave;
-                    echo 'El correo ingresado fue ' .$stringCorreo;
+                    $var = json_encode(null);
+                    die($var);
                 }
             }else
             {
-                echo 'Falta llenar los campos';
+                $var = json_encode(null);
+                die($var);
             }
 
     }else{
