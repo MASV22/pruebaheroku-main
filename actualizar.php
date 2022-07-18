@@ -3,34 +3,37 @@
 header("Access-Control-Allow-Origin: *");
 require_once __DIR__ . '/vendor/autoload.php';
 // Crear Cliente---------------------------------------------------------------------
-$client = new MongoDB\Client('mongodb+srv://TBBLuxari:DMc53jwH5CIQAryP@prueba-puntos.veb9sop.mongodb.net/?retryWrites=true&w=majority');
+$client = new MongoDB\Client('mongodb+srv://miguel:22699@cluster0.amgor.mongodb.net/?retryWrites=true&w=majority');
 
 // Traer Base de datos---------------------------------------------------------------
-$database = $client->Allers;
+$database = $client->MultimediaS;
 // Crear o Traer coleccion-----------------------------------------------------------
-$collection2 = $database->UsuariosHeroku;
+$collection = $database->usuario;
 
-$PuntajeUnity = $_GET['PuntajeUnity'];
-$CorreoUnity = $_GET['CorreoUnity'];
-$TiempoUnity = $_GET['TiempoUnity'];
+//Variables que necesito ------------------------------------------------------------
+
+$Usuario = $_GET['Usuario'];
+$ClaveActual = $_GET['Clave0'];
+$ClaveNueva = $_GET['Clave1'];
+$ClaveNuevaConfirm = $_GET['Clave2'];
 
 // Actualizar un dato ---------------------------------------------------------------
 
-// $filtro = ['CORREO' => $CorreoUnity];
-// $update = ['$set' => ['PUNTAJE' => intval($PuntajeUnity) , 'INTENTO' => $TiempoUnity]];
+$filtro = ['user' => $Usuario];
+$update = ['$set' => ['password' => $ClaveNueva]];
 
-// $Actualizar = $collection2->updateOne($filtro,$update);
-
-
-$document=[
-
-    'CORREO' => $CorreoUnity,
-    'PUNTAJE' => $PuntajeUnity,
-    'INTENTO' => $TiempoUnity,
-];
+$Actualizar = $collection->updateOne($filtro,$update);
 
 
-$insertOneResult = $collection2->insertOne($document); 
+// $document=[
+
+//     'CORREO' => $CorreoUnity,
+//     'PUNTAJE' => $PuntajeUnity,
+//     'INTENTO' => $TiempoUnity,
+// ];
+
+
+// $insertOneResult = $collection2->insertOne($document); 
 
 
 
