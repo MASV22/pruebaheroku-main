@@ -20,10 +20,33 @@ $ClaveNuevaConfirm = $_GET['Clave2'];
 // Actualizar un dato ---------------------------------------------------------------
 
 $filtro = ['user' => $Usuario];
-$update = ['$set' => ['password' => $ClaveNueva]];
+$CORREO = $collection->findOne($filtro);
 
-$Actualizar = $collection->updateOne($filtro,$update);
+if($CORREO != null){
 
+    $datosCorreo = $CORREO->jsonSerialize();
+
+    if($ClaveActual == $datosCorreo->password)
+    {
+        if($ClaveNueva == $ClaveNuevaConfirm)
+        {
+            $update = ['$set' => ['password' => $ClaveNueva]];
+            $Actualizar = $collection->updateOne($filtro,$update);
+        }
+        else 
+        {
+            $var = json_encode(null);
+            die($var);
+        }
+
+    }
+    else 
+    {
+        $var = json_encode(null);
+        die($var);
+    }
+
+}
 
 // $document=[
 
@@ -35,9 +58,6 @@ $Actualizar = $collection->updateOne($filtro,$update);
 
 // $insertOneResult = $collection2->insertOne($document); 
 
-
-
-echo 'Actualizado'
 
 
 ?>
