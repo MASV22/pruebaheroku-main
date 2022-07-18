@@ -32,6 +32,8 @@ if($CORREO != null){
         {
             $update = ['$set' => ['password' => $ClaveNueva]];
             $Actualizar = $collection->updateOne($filtro,$update);
+            $var = json_encode($datosCorreo);
+            die($var);
         }
         else 
         {
