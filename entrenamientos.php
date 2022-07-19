@@ -10,29 +10,20 @@ $database = $client->MultimediaS;
 // Crear o Traer coleccion-----------------------------------------------------------
 $collection = $database->entrenamiento;
 
-//Variables que necesito ------------------------------------------------------------
-
-$Mundo = $_GET['Mundo'];
-
-// Actualizar un dato ---------------------------------------------------------------
-
-$filtro = ['mundo' => $Mundo];
-$Datos = $collection->findOne($filtro);
+$Datos = $collection->find();
 
 
 if($Datos != null){
 
-//    foreach($Datos as $doc) 
-//    {
+    $arreglo = array();
 
-//         $datosMundo = $doc->jsonSerialize();
-//         $var = json_encode($datosMundo);
-//         echo($var);
+   foreach($Datos as $doc) 
+   {
+
+        $datosMundo = $doc->jsonSerialize();
+        array_push($arreglo, $datosMundo);       
         
-//    }
-
-    $datosMundo = $Datos->jsonSerialize();
-    $arreglo = array($datosMundo,$datosMundo);
+   }
     $var = json_encode($arreglo);
     echo($var);
 
