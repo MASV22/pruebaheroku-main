@@ -33,7 +33,8 @@ if($Datos != null){
 
     $datosMundo = $Datos->jsonSerialize();
     $var = json_encode($datosMundo);
-    echo($var);
+    $arreglo = array($var,$var);
+    var_dump($arreglo);
 
 }
 else 
