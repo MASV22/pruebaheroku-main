@@ -32,9 +32,9 @@ if($Datos != null){
 //    }
 
     $datosMundo = $Datos->jsonSerialize();
-    $var = json_encode($datosMundo);
-    $arreglo = array($var,$var);
-    var_dump($arreglo);
+    $arreglo = array($datosMundo,$datosMundo);
+    $var = json_encode($arreglo);
+    echo($var);
 
 }
 else 
