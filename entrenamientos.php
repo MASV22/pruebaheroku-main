@@ -17,19 +17,23 @@ $Mundo = $_GET['Mundo'];
 // Actualizar un dato ---------------------------------------------------------------
 
 $filtro = ['mundo' => $Mundo];
-$Datos = $collection->find($filtro);
+$Datos = $collection->findOne($filtro);
 
 
 if($Datos != null){
 
-   foreach($Datos as $doc) 
-   {
+//    foreach($Datos as $doc) 
+//    {
 
-        $datosMundo = $doc->jsonSerialize();
-        $var = json_encode($datosMundo);
-        echo($var);
+//         $datosMundo = $doc->jsonSerialize();
+//         $var = json_encode($datosMundo);
+//         echo($var);
         
-   }
+//    }
+
+    $datosMundo = $Datos->jsonSerialize();
+    $var = json_encode($datosMundo);
+    echo($var);
 
 }
 else 
