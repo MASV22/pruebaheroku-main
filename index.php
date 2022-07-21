@@ -11,8 +11,8 @@
     // Logica de Login -------------------------------------------------------------------------------------
 
     //Variables que necesito -----------
-    $Usuario = $_GET['Correo'];
-    $Clave = $_GET['Clave'];
+    $Usuario = $_POST['Correo'];
+    $Clave = $_POST['Clave'];
     $Puntaje =0;
     //-----------
     $stringCorreo = $Usuario;
