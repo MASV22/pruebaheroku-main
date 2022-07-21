@@ -16,8 +16,8 @@ $collection = $database->usuario;
 
 //Variables que necesito ------------------------------------------------------------
 
-$Usuario = $_GET['Usuario'];
-$Imagen = $_GET['Imagen'];
+$Usuario = $_POST['Usuario'];
+$Imagen = $_POST['Imagen'];
 
 // Actualizar un dato ---------------------------------------------------------------
 
