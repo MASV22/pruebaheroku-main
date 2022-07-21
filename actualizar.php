@@ -12,10 +12,10 @@ $collection = $database->usuario;
 
 //Variables que necesito ------------------------------------------------------------
 
-$Usuario = $_GET['Usuario'];
-$ClaveActual = $_GET['Clave0'];
-$ClaveNueva = $_GET['Clave1'];
-$ClaveNuevaConfirm = $_GET['Clave2'];
+$Usuario = $_POST['Usuario'];
+$ClaveActual = $_POST['Clave0'];
+$ClaveNueva = $_POST['Clave1'];
+$ClaveNuevaConfirm = $_POST['Clave2'];
 
 // Actualizar un dato ---------------------------------------------------------------
 
