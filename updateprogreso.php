@@ -13,26 +13,59 @@ $database = $client->MultimediaS;
 
 // Crear o Traer coleccion-----------------------------------------------------------
 
-$collection = $database->usuario2;
+$collection = $database->puntaje;
 
 //Variables que necesito ------------------------------------------------------------
 
-$Usuarioid = $_GET['correo'];
+$usuarioid = $_GET['userid'];
+$trainingid = $_GET['trainingid'];
+$puntaje = $_GET['puntaje'];
 
 // Actualizar un dato ---------------------------------------------------------------
 
 
 
-$filtro = ['email' => $Usuarioid];
-$Busqueda = $collection->findOne($filtro);
+// $filtro = ['email' => $Usuarioid];
+$filtro = ['userID' => new MongoDB\BSON\ObjectId($usuarioid)];
+$filtro2 = ['entrenamientoID' => new MongoDB\BSON\ObjectId($trainingid)];
+$Busqueda = $collection->findOne(array(
+    '$and' => array($filtro,$filtro2))
+);
 
 
 
 if($Busqueda != null)
 {
-    $datosCorreo = $Busqueda->jsonSerialize();
-    $update = ['$set' => ['entrenamientos.0.progreso' => 5]];
-    $Actualizar = $collection->updateOne($filtro,$update);
+    print("siiiii");
+
+ 
+    $datosMundo = $Busqueda->jsonSerialize();  
+    $var = json_encode($datosMundo); 
+    print($var);     
+         
+    
+
+    $update = ['$set' => ['puntaje' => $puntaje]];
+    $Actualizar = $collection->updateOne($datosMundo,$update);
+         
+
+
+    // $datosCorreo = $Busqueda->jsonSerialize();
+    // $var = json_encode($datosCorreo);
+    // print($var);
+    
+    // $idEntrenamiento = 1;
+    // $filtro2 = ['ID' => $idEntrenamiento];
+    // $Busqueda2 = $collection->findOne($filtro2);
+    // if ($Busqueda2 != null) 
+    // {
+    //     $datosCorreo = $Busqueda->jsonSerialize();
+    //     $update = ['$set' => ['entrenamientos.'.$idEntrenamiento.'.progreso' => 55]];
+    //     $Actualizar = $collection->updateOne($filtro,$update);
+    // } 
+    // else {
+    //     print("NO encontró entrenamiento");
+    // } 
 
 }
 else{
