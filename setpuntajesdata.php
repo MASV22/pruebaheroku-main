@@ -24,44 +24,47 @@ $usuarioid = new MongoDB\BSON\ObjectId($datoUsuarioid);
 $Datos = $collection->find();
 
 
-if($Datos != null){
+if ($datoUsuarioid != null) {
 
-    $arreglo = array();
-    $arreglofinal = array();
+        if($Datos != null){
 
-    $filtro = ['userID' => $usuarioid];
+        $arreglo = array();
+        $arreglofinal = array();
 
-   foreach($Datos as $doc) 
-   {
-        /// Buscar datos id y establecer parametros id y title -----------------------------
+        $filtro = ['userID' => $usuarioid];
 
-        $datosMundo = $doc->jsonSerialize();
-        array_push($arreglo, $datosMundo);  
-        $a =  $doc -> _id;
-        $b = $doc -> title;
-
-        /// Buscar por medio de entrenamientoID y Userid si existe en la tabla puntaje------------
-
-        $filtro2 = ['entrenamientoID' => $a];
-        $Busqueda = $collection2->findOne(array(
-            '$and' => array($filtro2,$filtro))
-        );
-        var_dump($Busqueda);
-
-        if ($Busqueda == NULL) 
+        foreach($Datos as $doc) 
         {
-            print("agregó");
-            $collection2->insertOne(
+            /// Buscar datos id y establecer parametros id y title -----------------------------
 
-                [
-                    'userID' => new MongoDB\BSON\ObjectId($usuarioid),
-                    'entrenamientoID' => new MongoDB\BSON\ObjectId($a),
-                    'puntaje' => 0,
-                    'entrenamientoTitle' => $b,
-                ]
-    
+            $datosMundo = $doc->jsonSerialize();
+            array_push($arreglo, $datosMundo);  
+            $a =  $doc -> _id;
+            $b = $doc -> title;
+
+            /// Buscar por medio de entrenamientoID y Userid si existe en la tabla puntaje------------
+
+            $filtro2 = ['entrenamientoID' => $a];
+            $Busqueda = $collection2->findOne(array(
+                '$and' => array($filtro2,$filtro))
             );
-        }
+            var_dump($Busqueda);
+
+            if ($Busqueda == NULL) 
+            {
+                print("agregó");
+                $collection2->insertOne(
+
+                    [
+                        'userID' => new MongoDB\BSON\ObjectId($usuarioid),
+                        'entrenamientoID' => new MongoDB\BSON\ObjectId($a),
+                        'puntaje' => 0,
+                        'entrenamientoTitle' => $b,
+                    ]
+
+                );
+            }
+        }  
     }
 }
 else 
