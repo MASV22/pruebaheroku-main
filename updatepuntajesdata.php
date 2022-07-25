@@ -36,7 +36,7 @@ if($Busqueda != null)
     $var = json_encode($datosMundo); 
     print($var);     
          
-    $update = ['$set' => ['puntaje' => $puntaje]];
+    $update = ['$set' => ['puntaje' => intval($puntaje)]];
     $Actualizar = $collection->updateOne($datosMundo,$update);     
 }
 else{
