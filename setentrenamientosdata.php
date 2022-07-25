@@ -16,16 +16,31 @@ $Datos = $collection->find();
 if($Datos != null){
 
     $arreglo = array();
+    $arreglofinal = array();
 
-   foreach($Datos as $doc) 
+    $showDetails = [ // (3)
+        '$project' => ['_id' => 1]
+        ];
+
+        $result = $collection->aggregate([ $showDetails]);
+
+   foreach($result as $doc) 
    {
+        /// Buscar datos id -----------------------------
 
-        $datosMundo = $doc->jsonSerialize();
-        array_push($arreglo, $datosMundo);       
-        
+        $datos2 = $doc->jsonSerialize();
+        array_push($arreglo, $datos2->_id);     
    }
-    $var = json_encode($arreglo);
-    echo($var);
+
+$array = json_decode(json_encode($arreglo), true);
+
+
+for ($i=0; $i < count($array); $i++) { 
+    $prueba = $array[$i]['$oid'];
+    array_push($arreglofinal, $prueba);
+}
+
+print_r ($arreglofinal[1]);
 
 }
 else 
