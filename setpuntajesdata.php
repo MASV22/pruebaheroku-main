@@ -41,6 +41,7 @@ if ($datoUsuarioid != null) {
             array_push($arreglo, $datosMundo);  
             $a =  $doc -> _id;
             $b = $doc -> title;
+            $c = $doc -> meta;
 
             /// Buscar por medio de entrenamientoID y Userid si existe en la tabla puntaje------------
 
@@ -60,6 +61,7 @@ if ($datoUsuarioid != null) {
                         'entrenamientoID' => new MongoDB\BSON\ObjectId($a),
                         'puntaje' => 0,
                         'entrenamientoTitle' => $b,
+                        'meta' => $c,
                     ]
 
                 );
