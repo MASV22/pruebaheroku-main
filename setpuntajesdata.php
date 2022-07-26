@@ -17,7 +17,7 @@ $database = $client->MultimediaS;
 $collection = $database->entrenamiento;
 $collection2 = $database->puntaje;
 
-$datoUsuarioid = $_GET['userid'];
+$datoUsuarioid = $_POST['userid'];
 
 $usuarioid = new MongoDB\BSON\ObjectId($datoUsuarioid);
 

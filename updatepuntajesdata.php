@@ -18,9 +18,9 @@ $collection = $database->puntaje;
 
 //Variables que necesito ------------------------------------------------------------
 
-$usuarioid = $_GET['userid'];
-$trainingid = $_GET['trainingid'];
-$puntaje = $_GET['puntaje'];
+$usuarioid = $_POST['userid'];
+$trainingid = $_POST['trainingid'];
+$puntaje = $_POST['puntaje'];
 
 // Actualizar un dato ---------------------------------------------------------------
 

@@ -16,7 +16,7 @@ $collection = $database->puntaje;
 
 //Variables que necesito ------------------------------------------------------------
 
-$datoUsuarioid = $_GET['userid'];
+$datoUsuarioid = $_POST['userid'];
 
 $usuarioid = new MongoDB\BSON\ObjectId($datoUsuarioid);
 
