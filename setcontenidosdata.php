@@ -14,10 +14,10 @@ $database = $client->MultimediaS;
 
 // Crear o Traer coleccion-----------------------------------------------------------
 
-$collection = $database->entrenamiento;
-$collection2 = $database->puntaje;
+$collection = $database->contenidos;
+$collection2 = $database->entrenamiento;
 
-$datoUsuarioid = $_POST['userid'];
+$datoUsuarioid = $_GET['userid'];
 
 $usuarioid = new MongoDB\BSON\ObjectId($datoUsuarioid);
 
@@ -29,7 +29,7 @@ if ($datoUsuarioid != null) {
         if($Datos != null){
 
         $arreglo = array();
-        $arreglofinal = array();
+        // $arreglofinal = array();
 
         $filtro = ['userID' => $usuarioid];
 
@@ -38,12 +38,10 @@ if ($datoUsuarioid != null) {
             /// Buscar datos id y establecer parametros id y title -----------------------------
 
             $datosMundo = $doc->jsonSerialize();
-            array_push($arreglo, $datosMundo);  
+            array_push($arreglo, $doc -> _id);  
             $a =  $doc -> _id;
             $b = $doc -> title;
             $c = $doc -> meta;
-            $d = $doc -> img;
-            $e = $doc -> mundo;
 
             /// Buscar por medio de entrenamientoID y Userid si existe en la tabla puntaje------------
 
@@ -51,7 +49,9 @@ if ($datoUsuarioid != null) {
             $Busqueda = $collection2->findOne(array(
                 '$and' => array($filtro2,$filtro))
             );
-            var_dump($Busqueda);
+            
+            $var = json_encode($Busqueda);
+            
 
             if ($Busqueda == NULL) 
             {
@@ -64,13 +64,12 @@ if ($datoUsuarioid != null) {
                         'puntaje' => 0,
                         'entrenamientoTitle' => $b,
                         'meta' => $c,
-                        'img' => $d,
-                        'mundo' => $e,
                     ]
 
                 );
             }
         }  
+        print_r($arreglo);
     }
 }
 else 
