@@ -17,60 +17,81 @@ $database = $client->MultimediaS;
 $collection = $database->contenidos;
 $collection2 = $database->entrenamiento;
 
-$datoUsuarioid = $_GET['userid'];
+$datoContenidoid = $_GET['contenidoid'];
 
-$usuarioid = new MongoDB\BSON\ObjectId($datoUsuarioid);
+$contenidoid = new MongoDB\BSON\ObjectId($datoContenidoid);
 
 $Datos = $collection->find();
+$Datos2 = $collection2->find();
 
+if ($datoContenidoid != null) {
 
-if ($datoUsuarioid != null) {
+    if($Datos != null)
+    {
 
-        if($Datos != null){
-
-        $arreglo = array();
+        $arregloContenido = array();
+        $arregloEntrenamiento = array();
         // $arreglofinal = array();
-
-        $filtro = ['userID' => $usuarioid];
 
         foreach($Datos as $doc) 
         {
-            /// Buscar datos id y establecer parametros id y title -----------------------------
+            /// Buscar datos id y establecer parametros title -----------------------------
 
-            $datosMundo = $doc->jsonSerialize();
-            array_push($arreglo, $doc -> _id);  
-            $a =  $doc -> _id;
-            $b = $doc -> title;
-            $c = $doc -> meta;
+            array_push($arregloContenido, $doc -> _id);  
+            $tituloContenido =  $doc -> entrenamiento;
 
             /// Buscar por medio de entrenamientoID y Userid si existe en la tabla puntaje------------
+            $filtro = ['entrenamiento' => $tituloContenido];
+            print_r($filtro);
 
-            $filtro2 = ['entrenamientoID' => $a];
-            $Busqueda = $collection2->findOne(array(
-                '$and' => array($filtro2,$filtro))
-            );
-            
-            $var = json_encode($Busqueda);
-            
-
-            if ($Busqueda == NULL) 
-            {
-                print("agregó");
-                $collection2->insertOne(
-
-                    [
-                        'userID' => new MongoDB\BSON\ObjectId($usuarioid),
-                        'entrenamientoID' => new MongoDB\BSON\ObjectId($a),
-                        'puntaje' => 0,
-                        'entrenamientoTitle' => $b,
-                        'meta' => $c,
-                    ]
-
-                );
-            }
-        }  
-        print_r($arreglo);
+        }
+        print_r($arregloContenido);
     }
+   // print_r($arregloContenido);
+
+
+
+    if($Datos2 != null)
+    {
+        foreach($Datos2 as $doc2) 
+        {
+            /// Buscar datos id y establecer parametros id y title -----------------------------
+
+            array_push($arregloEntrenamiento, $doc2 -> _id);  
+            $tituloEntrenamiento =  $doc2 -> title;
+            /// Buscar por medio de entrenamientoID y Userid si existe en la tabla puntaje------------
+            $filtro2 = ['title' => $tituloEntrenamiento];
+            print_r($filtro2);
+   
+
+            /// Buscar por medio de entrenamientoID y Userid si existe en la tabla puntaje------------
+            // $filtro = ['entrenamiento' => $b];
+            // $filtro2 = ['entrenamientoID' => $a];
+            // $Busqueda = $collection2->findOne(array(
+            //     '$and' => array($filtro2,$filtro))
+            // );
+            
+            // $var = json_encode($Busqueda);
+            
+
+            // if ($Busqueda == NULL) 
+            // {
+            //     print("agregó");
+            //     $collection2->insertOne(
+
+            //         [
+            //             'userID' => new MongoDB\BSON\ObjectId($usuarioid),
+            //             'entrenamientoID' => new MongoDB\BSON\ObjectId($a),
+            //             'puntaje' => 0,
+            //             'entrenamientoTitle' => $b,
+            //             'meta' => $c,
+            //         ]
+
+            //     );
+            // }
+        } 
+    } 
+    
 }
 else 
 {

@@ -13,6 +13,8 @@
     //Variables que necesito -----------
     $Usuario = $_POST['Correo'];
     $Clave = $_POST['Clave'];
+    $Fecha = $_POST['Fecha'];
+
     $Puntaje =0;
     //-----------
     $stringCorreo = $Usuario;
@@ -21,7 +23,7 @@
     $filtroCorreo =['user' => $stringCorreo];
     $CORREO = $collection->findOne($filtroCorreo);
     if($CORREO != null){
-       
+      // print_r($CORREO);
         $datosCorreo = $CORREO->jsonSerialize();
        
         //echo "usuario: " . $CORREO[user] . " clave: " . $CORREO[password].".";
@@ -49,7 +51,25 @@
                 if( $stringCorreo == $datosCorreo->user && $stringclave == $datosCorreo->password )
                 {
                     $var = json_encode($datosCorreo);
-                    die($var);
+                    echo($var);
+
+                    // Actualizar un dato ---------------------------------------------------------------
+                    
+
+                /// Buscar datos fechas y establecer parametros  -----------------------------
+            
+                    $obtenerDato = json_decode($var,true);
+                    $arrayFechas = $obtenerDato['fecha'];
+
+                    array_shift($arrayFechas);
+                    array_push($arrayFechas,$Fecha);
+
+
+                    $update = ['$set' => ['fecha' => $arrayFechas]];
+
+                    $Actualizar = $collection->updateOne($filtroCorreo,$update);
+
+                    
 
 
 
