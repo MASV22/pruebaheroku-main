@@ -44,6 +44,8 @@ if ($datoUsuarioid != null) {
             $c = $doc -> meta;
             $d = $doc -> img;
             $e = $doc -> mundo;
+            $f = $doc -> contenido;
+            $g = $doc -> habilitado;
 
             /// Buscar por medio de entrenamientoID y Userid si existe en la tabla puntaje------------
 
@@ -66,6 +68,8 @@ if ($datoUsuarioid != null) {
                         'meta' => $c,
                         'img' => $d,
                         'mundo' => $e,
+                        'contenido' => $f,
+                        'habilitado' => $g
                     ]
 
                 );
