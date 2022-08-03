@@ -18,10 +18,10 @@ $collection = $database->puntaje;
 
 //Variables que necesito ------------------------------------------------------------
 
-$usuarioid = $_POST['userid'];
-$trainingid = $_POST['trainingid'];
-$puntaje = $_POST['puntaje'];
-$index = $_POST['index'];
+$usuarioid = $_GET['userid'];
+$trainingid = $_GET['trainingid'];
+$puntaje = $_GET['puntaje'];
+$index = $_GET['index'];
 
 // Actualizar un dato ---------------------------------------------------------------
 
@@ -30,7 +30,7 @@ $filtro2 = ['entrenamientoID' => new MongoDB\BSON\ObjectId($trainingid)];
 $Busqueda = $collection->findOne(array(
     '$and' => array($filtro,$filtro2))
 );
-if($index && $puntaje != null){
+if($puntaje != null){
 
     if($Busqueda != null)
     {
