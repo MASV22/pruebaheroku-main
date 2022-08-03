@@ -39,17 +39,17 @@ if ($datoUsuarioid != null) {
 
             $datosMundo = $doc->jsonSerialize();
             array_push($arreglo, $datosMundo);  
-            $a =  $doc -> _id;
-            $b = $doc -> title;
-            $c = $doc -> meta;
-            $d = $doc -> img;
-            $e = $doc -> mundo;
-            $f = $doc -> contenido;
-            $g = $doc -> habilitado;
+            $entID =  $doc -> _id;
+            $entTitle = $doc -> title;
+            $entMeta = $doc -> meta;
+            $entImg = $doc -> img;
+            $entMundo = $doc -> mundo;
+            $entCont = $doc -> contenido;
+            $entHabilitado = $doc -> habilitado;
 
             /// Buscar por medio de entrenamientoID y Userid si existe en la tabla puntaje------------
 
-            $filtro2 = ['entrenamientoID' => $a];
+            $filtro2 = ['entrenamientoID' => $entID];
             $Busqueda = $collection2->findOne(array(
                 '$and' => array($filtro2,$filtro))
             );
@@ -62,14 +62,14 @@ if ($datoUsuarioid != null) {
 
                     [
                         'userID' => new MongoDB\BSON\ObjectId($usuarioid),
-                        'entrenamientoID' => new MongoDB\BSON\ObjectId($a),
+                        'entrenamientoID' => new MongoDB\BSON\ObjectId($entID),
                         'puntaje' => 0,
-                        'entrenamientoTitle' => $b,
-                        'meta' => $c,
-                        'img' => $d,
-                        'mundo' => $e,
-                        'contenido' => $f,
-                        'habilitado' => $g
+                        'entrenamientoTitle' => $entTitle,
+                        'meta' => $entMeta,
+                        'img' => $entImg,
+                        'mundo' => $entMundo,
+                        'contenido' => $entCont,
+                        'habilitado' => $entHabilitado
                     ]
 
                 );
