@@ -21,6 +21,7 @@ $collection = $database->puntaje;
 $usuarioid = $_POST['userid'];
 $trainingid = $_POST['trainingid'];
 $puntaje = $_POST['puntaje'];
+$index = $_POST['index'];
 
 // Actualizar un dato ---------------------------------------------------------------
 
@@ -29,19 +30,32 @@ $filtro2 = ['entrenamientoID' => new MongoDB\BSON\ObjectId($trainingid)];
 $Busqueda = $collection->findOne(array(
     '$and' => array($filtro,$filtro2))
 );
+if($index && $puntaje != null){
 
-if($Busqueda != null)
-{
-    $datosMundo = $Busqueda->jsonSerialize();  
-    $var = json_encode($datosMundo); 
-    print($var);     
-         
-    $update = ['$set' => ['puntaje' => intval($puntaje)]];
-    $Actualizar = $collection->updateOne($datosMundo,$update);     
+    if($Busqueda != null)
+    {
+        $datosMundo = $Busqueda->jsonSerialize();  
+        $var = json_encode($datosMundo); 
+        //print($var);     
+             
+       // $update2 = ['$set' => array( 'contenido.'.$index.'.terminado' => 1 )];
+       //$update = ['$set' => ['puntaje' => intval($puntaje)]];
+
+   $Actualizar = $collection->updateOne($datosMundo,
+                array('$set' => array(
+                    'contenido.'.$index.'.terminado' => 1,
+                    'puntaje' => intval($puntaje))),array('multi' => true));
+    }
+    else{
+        $var = json_encode(null);
+        die($var);
+    }
+}else{
+    $var = json_encode(null);
+    die($var);
 }
-else{
-    print("NO");
-}
+
+
 
 
 ?>
