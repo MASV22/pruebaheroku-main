@@ -18,8 +18,8 @@ $collection = $database->usuario;
 
 //Variables que necesito ------------------------------------------------------------
 
-$usuarioid = $_POST['userid'];
-$puntajeSemana = $_POST['puntajesemana'];
+$usuarioid = $_GET['userid'];
+$puntajeSemana = $_GET['puntajesemana'];
 
 
 // Actualizar un dato ---------------------------------------------------------------
@@ -41,10 +41,10 @@ if($Busqueda != null)
     // Actualizar un dato ---------------------------------------------------------------
         
     /// Buscar datos puntajesemana y establecer parametros  -----------------------------
+    
+    $array = array_map('intval', explode(',', $puntajeSemana));
 
-    $array = explode ( ',', $puntajeSemana );
-
-    print_r($array);
+    var_dump($array);
 
     $update = ['$set' => ['semana' => $array]];
 
