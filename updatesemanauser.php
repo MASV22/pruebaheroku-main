@@ -18,8 +18,8 @@ $collection = $database->usuario;
 
 //Variables que necesito ------------------------------------------------------------
 
-$usuarioid = $_GET['userid'];
-$puntajeSemana = $_GET['puntajesemana'];
+$usuarioid = $_POST['userid'];
+$puntajeSemana = $_POST['puntajesemana'];
 
 
 // Actualizar un dato ---------------------------------------------------------------
