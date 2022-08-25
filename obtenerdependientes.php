@@ -18,17 +18,27 @@ $collection = $database->usuario;
 
 $filtro = ['rol' => 1];
 
-$Datos = $collection->find($filtro);
+$projection = ['projection'=>["imgUser" => 0]];
+
+$Datos = $collection->find($filtro,$projection);
 
 if($Datos != null)
 {
-    foreach ($Datos as $doc) {
+    $arreglo = array();
+
+    foreach ($Datos as $doc) 
+    {
         $datosDependiente = $doc->jsonSerialize();
-        $var = json_encode($datosDependiente);
-        echo($var);
+        array_push($arreglo, $datosDependiente);
     }
 
-
+    $var = json_encode($arreglo);
+    echo($var);
+}
+else 
+{
+    $var = json_encode(null);
+    die($var);
 }
 
 
