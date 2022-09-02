@@ -16,14 +16,25 @@
     $pass = "Admin22699";
     $dbname = "pruebasu_pwa";
 
-    $conn = mysqli_connect($servername,$user,$pass,$dbname);
+    // $conn = mysqli_connect($servername,$user,$pass,$dbname);
+    
+    // if($conn){
+    //     echo "Connexion establecida";
+    // }
+    // else{
+    //     echo "error";
+    // }
 
-    if($conn){
-        echo "Connexion establecida";
+    try
+    {
+        $conexion = new PDO("mysql:host=localhost;dbname=pruebasu_pwa",$user,$pass);
+        if ($conexion) {
+            echo "conectooooo";
+        }
+    }catch(Exception $ex){
+        echo $ex->getMessage();
     }
-    else{
-        echo "error";
-    }
+    
 ?>
 
 
