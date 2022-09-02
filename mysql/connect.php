@@ -27,7 +27,7 @@
 
     try
     {
-        $conexion = new PDO("mysql:host=localhost;dbname=pruebasu_pwa",$user,$pass);
+        $conexion = new PDO("mysql:host=nury;dbname=pruebasu_pwa",$user,$pass);
         if ($conexion) {
             echo "conectooooo";
         }
