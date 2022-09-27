@@ -20,7 +20,7 @@ $filtro = ['rol' => 1];
 
 $projection = ['projection'=>["imgUser" => 0]];
 
-$Datos = $collection->find($filtro,$projection);
+$Datos = $collection->find($filtro);
 
 if($Datos != null)
 {
