@@ -3,10 +3,12 @@
 header("Access-Control-Allow-Origin: *");
 require_once __DIR__ . '/vendor/autoload.php';
 // Crear Cliente---------------------------------------------------------------------
+// Cambiar link de la base de datos --------------------
 
 $client = new MongoDB\Client('mongodb+srv://miguel:22699@cluster0.amgor.mongodb.net/?retryWrites=true&w=majority');
 
 // Traer Base de datos---------------------------------------------------------------
+/// Cambiar nombre de la base de datos ------------------------------
 
 $database = $client->MultimediaS;
 
