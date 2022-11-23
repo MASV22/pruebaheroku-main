@@ -1,5 +1,5 @@
 <?php 
-//(CAMBIAR IMAGEN)
+//(SUBIR IMAGEN EN ARCHIVO)
 header("Access-Control-Allow-Origin: *");
 require_once __DIR__ . '/vendor/autoload.php';
 // Crear Cliente---------------------------------------------------------------------
@@ -17,7 +17,8 @@ $collection = $database->usuario;
 //Variables que necesito ------------------------------------------------------------
 
 $Usuario = $_POST['Usuario'];
-$Imagen = $_POST['Imagen'];
+
+$Comentario = $_POST['Comentario'];
 
 // Actualizar un dato ---------------------------------------------------------------
 
@@ -30,8 +31,7 @@ $CORREO = $collection->findOne($filtro);
 if($CORREO != null){
 
     $datosCorreo = $CORREO->jsonSerialize();
-
-    $update = ['$set' => ['imgUser' => $Imagen]];
+    $update = ['$set' => ['comentario' => $Comentario]];
     $Actualizar = $collection->updateOne($filtro,$update);
     $var = json_encode($datosCorreo);
     die($var);
